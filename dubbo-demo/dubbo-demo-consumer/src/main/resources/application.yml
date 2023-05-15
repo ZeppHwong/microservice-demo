@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: dubbo-demo-consumer
+server:
+  port: 8088
+#nacos:
+#  config:
+#    server-addr: http://10.30.27.113:8848
+#    username: nacos
+#    password: nacos
+#  discovery:
+#    server-addr: http://10.30.27.113:8848
+#    username: nacos
+#    password: nacos
+dubbo:
+  application:
+    name: dubbo-demo-consumer
+    qos-host: 127.0.0.1
+    qos-port: 33333
+    qos-accept-foreign-ip: false
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://10.30.27.113:8848?username=nacos&password=nacos

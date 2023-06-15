@@ -12,6 +12,7 @@
         <module>dubbo-demo</module>
         <module>springcloud-demo</module>
         <module>springcloud-demo/eureka-client</module>
+        <module>springcloud-demo/gateway-sample</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

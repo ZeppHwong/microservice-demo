@@ -8,4 +8,4 @@ logs
 *.iml
 out
 gen
-target/
+**/target

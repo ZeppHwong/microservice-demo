@@ -11,8 +11,9 @@
     <modules>
         <module>dubbo-demo</module>
         <module>springcloud-demo</module>
-        <module>springcloud-demo/eureka-client</module>
     </modules>
+
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

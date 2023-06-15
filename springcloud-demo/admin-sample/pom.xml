@@ -5,22 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.demo</groupId>
-        <artifactId>microservice-demo</artifactId>
+        <artifactId>springcloud-demo</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
+    <artifactId>admin-sample</artifactId>
     <packaging>pom</packaging>
+
     <modules>
-        <module>config-server</module>
-        <module>admin-sample</module>
-        <module>eureka-sample</module>
-        <module>gateway-sample</module>
+        <module>admin-client</module>
+        <module>admin-server</module>
     </modules>
-    <artifactId>springcloud-demo</artifactId>
-
-    <name>Spring Cloud Basic Usage</name>
-    <description>Spring Cloud Basic Usage Demo</description>
-
-
 
 </project>

@@ -5,22 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.demo</groupId>
-        <artifactId>microservice-demo</artifactId>
+        <artifactId>eureka-sample</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <packaging>pom</packaging>
-    <modules>
-        <module>config-server</module>
-        <module>admin-sample</module>
-        <module>eureka-sample</module>
-        <module>gateway-sample</module>
-    </modules>
-    <artifactId>springcloud-demo</artifactId>
 
-    <name>Spring Cloud Basic Usage</name>
-    <description>Spring Cloud Basic Usage Demo</description>
+    <artifactId>eureka-service</artifactId>
 
-
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
 </project>

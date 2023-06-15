@@ -35,13 +35,17 @@
         </encoder>
     </appender>
 
-    <logger name="cn.demo.adminclient" level="INFO" additivity="false">
+    <logger name="cn.demo.adminclient" level="DEBUG" additivity="false">
         <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="FILE"/>
+<!--        <appender-ref ref="FILE"/>-->
+    </logger>
+    <logger name="cn.com.zxelec" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <!--        <appender-ref ref="FILE"/>-->
     </logger>
     <root level="INFO">
         <appender-ref ref="CONSOLE-WITH-COLOR"/>
-        <appender-ref ref="FILE"/>
+<!--        <appender-ref ref="FILE"/>-->
     </root>
 
 

@@ -1,0 +1,45 @@
+<<<<<<< HEAD
+server:
+  port: 9099
+=======
+>>>>>>> 17d0bb0448170d6a3d2bef455370f721531fcd5b
+spring:
+  application:
+    name: apigateway
+  cloud:
+    gateway:
+      routes:
+<<<<<<< HEAD
+        - id: admin-client #路由 id,没有固定规则，但唯一，建议与服务名对应
+=======
+        #路由 id,没有固定规则，但唯一，建议与服务名对应
+        - id: admin-client
+>>>>>>> 17d0bb0448170d6a3d2bef455370f721531fcd5b
+          uri: http://localhost:8081/
+          predicates:
+            - Path= /**
+            - Method=GET #只能时 GET 请求时，才能访问
+<<<<<<< HEAD
+          filters:
+            - StripPrefix= 1  #去掉Path前缀,参数为1代表去掉/ribbon
+            - name: RequestRateLimiter #基于redis的Gateway的自身限流 请求数限流 名字不能随便写
+              args:
+                key-resolver: "#{@ipKeyResolver}"  # 用于限流的键的解析器的 Bean 对象的名字,使用 SpEL 表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象。
+                redis-rate-limiter.replenishRate: 1       # 令牌桶每秒填充平均速率
+                redis-rate-limiter.burstCapacity: 10         # 令牌桶总容量。
+=======
+#          filters:
+#            - StripPrefix= 1
+#            - name: RequestRateLimiter #请求数限流 名字不能随便写
+#              args:
+#                # 用于限流的键的解析器的 Bean 对象的名字,
+#                # 使用 SpEL 表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象。
+#                key-resolver: "#{@ipKeyResolver}"
+#                # 令牌桶每秒填充平均速率
+#                redis-rate-limiter.replenishRate: 1
+#                # 令牌桶总容量。
+#                redis-rate-limiter.burstCapacity: 10
+
+server:
+  port: 9099
+>>>>>>> 17d0bb0448170d6a3d2bef455370f721531fcd5b

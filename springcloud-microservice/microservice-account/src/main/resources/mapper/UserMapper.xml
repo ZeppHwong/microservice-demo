@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.account.infra.mapper.UserMapper">
+
+<!--    1、useGeneratedKeys="true" 表示给主键设置自增长。
+    2、keyProperty="sid" 表示将自增长后的 Id 赋值给实体类中的 sid 字段。-->
+ <!--   <insert id="insertUser" parameterType="cn.demo.account.infra.valueobject.User"
+            useGeneratedKeys="true" keyProperty ="userId" keyColumn ="user_id">
+        insert into user (username,password,mobile) values (#{userName},#{password},#{mobile})
+    </insert>-->
+
+    <insert id="insertUser" parameterType="cn.demo.account.infra.valueobject.User"
+            useGeneratedKeys="true">
+        insert into user (user_id,username,password,mobile) values (#{userId},#{userName},#{password},#{mobile})
+    </insert>
+
+    <select id="getUserById" parameterType="java.lang.String"
+            resultType="cn.demo.account.infra.valueobject.User">
+        select *
+        from user
+        where user_id = #{userId}
+    </select>
+</mapper>

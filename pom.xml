@@ -17,11 +17,16 @@
     <packaging>pom</packaging>
 
 
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <modules>
 <!--        <module>dubbo-demo</module>-->
 <!--        <module>springcloud-demo</module>-->
-<!--        <module>springcloud-microservice</module>-->
-        <module>springcloud-alibaba-microservice</module>
+        <module>springcloud-microservice</module>
+<!--        <module>springcloud-alibaba-microservice</module>-->
     </modules>
 
 </project>

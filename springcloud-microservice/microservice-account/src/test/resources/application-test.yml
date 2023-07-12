@@ -5,29 +5,29 @@ server:
 spring:
   application:
     name: account-service
-  #  datasource:
-  #     # no sharding database, only one database
-  #    type: com.zaxxer.hikari.HikariDataSource
-  #    driver-class-name: com.mysql.cj.jdbc.Driver
-  #    url: jdbc:mysql://127.0.0.1:3306/account?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
-  #    username: root
-  #    password: 123456
+#  datasource:
+#     # no sharding database, only one database
+#    type: com.zaxxer.hikari.HikariDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/account?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+#    username: root
+#    password: 123456
   # sharding database
   shardingsphere:
     # 数据源配置
     datasource:
       # 数据源名称，多数据源以逗号分隔
-      names: account0,account1
-      account0:
+      names: account01,account02
+      account01:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://127.0.0.1:3306/account0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/account01?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
         username: root
         password: 123456
-      account1:
+      account02:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://127.0.0.1:3306/account1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/account02?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
         username: root
         password: 123456
     # 分片规则配置
@@ -40,7 +40,7 @@ spring:
             type: INLINE
             props:
               # 分片算法的行表达式（算法自行定义，此处为方便演示效果）
-              algorithm-expression: account$->{ user_id < 100? 0:1 }
+              algorithm-expression: account$->{user_id > 100?2:1}
           table-inline:
             # 分片算法类型
             type: INLINE
@@ -52,7 +52,7 @@ spring:
           # 逻辑表名称
           user:
             # 行表达式标识符可以使用 ${...} 或 $->{...}，但前者与 Spring 本身的属性文件占位符冲突，因此在 Spring 环境中使用行表达式标识符建议使用 $->{...}
-            actual-data-nodes: account${0..1}.user_${0..1}
+            actual-data-nodes: account$->{0..1}.user_$->{0..1}
             # 分库策略
             database-strategy:
               standard:
@@ -85,7 +85,7 @@ management:
       exposure:
         include: "*"
         exclude: "env,beans"
-  # spring boot version is 2.6 or above need to set enable
+# spring boot version is 2.6 or above need to set enable
   info:
     env:
       enabled: true
@@ -94,8 +94,3 @@ management:
 logging:
   level:
     root: info
-
-info:
-  application:
-    app: ${spring.application.name}
-    version: @project.version@

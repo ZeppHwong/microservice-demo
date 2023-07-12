@@ -1,0 +1,68 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: microservice-gateway
+  cloud:
+    gateway:
+      #跨域配置
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            # 允许携带认证信息
+#            allowCredentials: true
+#            # 允许跨域的源(网站域名/ip)，设置*为全部
+#            allowedOriginPatterns: "*"
+#            # 允许跨域的method， 默认为GET和OPTIONS，设置*为全部
+#            allowedMethods: "*"
+#            # 允许跨域请求里的head字段，设置*为全部
+#            allowedHeaders: "*"
+      httpclient:
+        wiretap: true
+      httpserver:
+        wiretap: true
+      discovery:
+        locator:
+#          will automatically create the route for EVERY service registered on Eureka,
+#          so you can access the EVERY service by http://<gateway>/<service-name>/path,
+#          and it will redirect to lb://<service-name>/path
+          enabled: true  # default false
+      routes:
+        #路由 id,没有固定规则，但唯一，建议与服务名对应
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path= /**
+            - Method=GET #只能时 GET 请求时，才能访问
+
+#resilience4j.ratelimiter:
+#  configs:
+#    default:
+#      registerHealthIndicator: false
+#      limitForPeriod: 10
+#      limitRefreshPeriod: 1s
+#      timeoutDuration: 0
+#      eventConsumerBufferSize: 100
+#  instances:
+#    backendA:
+#      limitForPeriod: 10
+#      limitRefreshPeriod: 1s
+#      timeoutDuration: 0
+#      registerHealthIndicator: true
+#      eventConsumerBufferSize: 100
+#    backendB:
+#      limitForPeriod: 6
+#      limitRefreshPeriod: 500ms
+#      timeoutDuration: 3s
+
+logging:
+  level:
+    root: INFO
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: DEBUG
+
+

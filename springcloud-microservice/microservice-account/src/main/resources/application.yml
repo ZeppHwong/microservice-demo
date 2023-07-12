@@ -1,0 +1,22 @@
+server:
+  port: ${PORT:18083}
+  servlet:
+    context-path: /account
+spring:
+  application:
+    name: account-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+# spring boot version is 2.6 or above need to set enable
+  info:
+    env:
+      enabled: true
+info:
+  application:
+    app: ${spring.application.name}
+    version: @project.version@

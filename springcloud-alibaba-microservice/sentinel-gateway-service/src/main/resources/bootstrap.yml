@@ -1,0 +1,60 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /sentinel-gateway
+spring:
+  application:
+    name: sentinel-gateway-service
+  cloud:
+    # Sentinel 控制台连接配置
+    sentinel:
+      transport:
+        # 当前服务与控制台交互的端口号,默认为8719,同一个机器上若有多个应用于控制台交互时需要设置成不同的端口
+        port : 8719
+        dashboard: ${SENTINEL:127.0.0.1}:8858
+      # 服务启动时直接建立心跳连接
+      eager: true
+      scg:
+        fallback:
+          # 两种模式可选： redirect 和 response
+          mode: response
+#          redirect: https://www.baidu.com/
+          # 只有在redirect模式下有用。response 模式下可以配置 spring.cloud.sentinel.scg.fallback.response-body 做为响应体
+          content-type: application/json
+          response-status: 429
+          response-body: '{"code":"429","msg":"请求超过最大数，请稍后再试"}'
+#      datasource:
+#        dsl.file:     #通过本地文件方式。基于服务级别的配置
+#            file: classpath:gw-flow.json
+#            ruleType: gw-flow
+#        ds2.file:	    #通过本地文件方式。细粒度对指定api进行配置
+#            file: classpath:gw-api-group.json
+#            ruleType: gw-api-group
+#        ds1:
+#          #通过nacos实现动态配置
+#          nacos:
+#            server-addr: localhost:8848
+#            data-id: gw-flow
+#            group-id: JXF_GROUP
+#            data-type: json
+#            rule-type: gw-flow  #gw-flow网关流控规则。用于定义服务或者自定义api组 的具体流控规则
+#        ds2:
+#          nacos:
+#            server-addr: localhost:8848
+#            data-id: gw-api-group
+#            group-id: JXF_GROUP
+#            data-type: json
+#            # 对上面服务中个别接口做单独指定流控规则，那么就可以使用自定义api组。先声明 一个一个的资源，每个资源可以匹配多个接口，
+#            # 每个资源对应一个appName，appName就是资源。
+#            # 注：gw-api-group只是声明一个个的资源，不参与指定具体的网关流控规则。网关流控规则是由rule-type: gw-flow 来指定。
+#            rule-type: gw-api-group
+    nacos:
+      discovery:
+        server-addr: ${NACOS:127.0.0.1}:8848
+        username: nacos
+        password: nacos
+      config:
+        file-extension: yaml
+        server-addr: ${NACOS:127.0.0.1}:8848
+        username: nacos
+        password: nacos

@@ -11,7 +11,7 @@
     </parent>
     <packaging>pom</packaging>
     <modules>
-        <module>config-server</module>
+        <module>config-sample</module>
         <module>admin-sample</module>
         <module>eureka-sample</module>
         <module>gateway-sample</module>
@@ -21,6 +21,35 @@
     <name>Spring Cloud Basic Usage</name>
     <description>Spring Cloud Basic Usage Demo</description>
 
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot.version>2.7.0</spring-boot.version>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+        <spring-boot-admin.version>2.7.0</spring-boot-admin.version>
+        <spring-cloud-netflix.version>2.2.7.RELEASE</spring-cloud-netflix.version>
+    </properties>
 
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 
 </project>

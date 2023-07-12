@@ -1,4 +1,4 @@
-package cn.demo.gateway.limit;
+package cn.demo.gateway.ratelimiter;
 
 import org.springframework.cloud.gateway.filter.ratelimit.KeyResolver;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import java.util.Objects;
 
 
 @Configuration
-public class BucketLimit {
+public class BucketLimit{
 
     @Primary
     @Bean(value = "ipKeyResolver")

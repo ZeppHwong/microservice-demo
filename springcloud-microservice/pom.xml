@@ -7,51 +7,46 @@
         <groupId>cn.demo</groupId>
         <artifactId>microservice-demo</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <artifactId>springcloud-microservice</artifactId>
     <packaging>pom</packaging>
-    <artifactId>dubbo-demo</artifactId>
-
-    <name>Dubbo Basic Usage</name>
-    <description>Dubbo Basic Usage Demo</description>
-
     <modules>
-        <module>dubbo-demo-api</module>
-        <module>dubbo-demo-consumer</module>
-        <module>dubbo-demo-provider</module>
+        <module>microservice-registry</module>
+        <module>microservice-account</module>
+        <module>microservice-configcenter</module>
+        <module>microservice-order</module>
+        <module>microservice-gateway</module>
     </modules>
 
+
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dubbo.version>3.2.0</dubbo.version>
         <spring-boot.version>2.7.0</spring-boot.version>
-        <nacos-config-spring-boot.version>0.2.12</nacos-config-spring-boot.version>
-        <nacos-discovery-spring-boot.version>0.2.12</nacos-discovery-spring-boot.version>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
-
+        <spring-boot-admin.version>2.7.0</spring-boot-admin.version>
+        <spring-cloud-netflix.version>2.2.7.RELEASE</spring-cloud-netflix.version>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
-            <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo -->
-            <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-bom</artifactId>
-                <version>${dubbo.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
+          <!--  <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>

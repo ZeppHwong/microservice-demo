@@ -1,0 +1,18 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /ali-order
+spring:
+  application:
+    name: ali-order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOSIP:127.0.0.1}:8848
+        username: nacos
+        password: nacos
+      config:
+        file-extension: yaml
+        server-addr: ${NACOSIP:127.0.0.1}:8848
+        username: nacos
+        password: nacos

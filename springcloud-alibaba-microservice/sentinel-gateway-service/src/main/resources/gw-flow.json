@@ -1,0 +1,23 @@
+[
+  {
+     // 这里有两种选择。第一种是基于整个服务来处理，用application.yml中定义的route-id名称来表示。
+    // 第二种是针对 自定义网关组，用appName的值来代表。
+    "resource": "user-route",
+    // 0是网关限流模式 ，1是自定义网关api组的方式
+    "resourceMode": 0,
+    // 只能执行5次
+    "count": 5,
+    // 周期是10s。结合上面就是每10s只能执行5次
+    "intervalSec": 10
+  },
+  {
+    // 和上面文件中apiName的名字要对应上
+    "resource": "myCustomApiFlow",
+    // 1是自定义网关api组的方式
+    "resourceMode": 1,
+    // 只能执行1次
+    "count": 1,
+    // 即10s内只能只能执行1次
+    "intervalSec": 10
+  }
+]

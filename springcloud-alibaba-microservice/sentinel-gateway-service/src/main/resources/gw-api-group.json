@@ -1,0 +1,18 @@
+[
+  {
+    // 资源名称
+    "apiName": "myCustomApiFlow",
+    "predicateItems": [
+      {
+        // 默认是精确匹配方式
+        "pattern": "/api/user/gw/group/exactMacth"
+      },
+      {
+        "pattern": "/api/user/gw/group/fuzzy/**",
+        // 模糊匹配方式
+        "matchStrategy": 1
+      }
+
+    ]
+  }
+]

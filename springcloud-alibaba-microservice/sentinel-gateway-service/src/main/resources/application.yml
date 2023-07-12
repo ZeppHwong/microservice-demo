@@ -1,0 +1,48 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #          will automatically create the route for EVERY service registered on Eureka,
+          #          so you can access the EVERY service by http://<gateway>/<service-name>/path,
+          #          and it will redirect to lb://<service-name>/path
+          enabled: true  # default false
+          lower-case-service-id: false
+      httpserver:
+        wiretap: true
+      httpclient:
+        wiretap: true
+      ## 路由
+      routes:
+        ## id只要唯一即可，名称任意
+        - id: ali-account-service
+          uri: lb://ali-account-service
+          ## 配置断言
+          predicates:
+            ## Path Route Predicate Factory断言，满足请求路径的都会被路由到 lb://ali-account-service
+            #services:个uri中
+          - Path=/ali-account/**
+          - Method=GET #只能时 GET 请求时，才能访问
+        ## id只要唯一即可，名称任意
+        - id: ali-order-service
+          uri: lb://ali-order-service
+          ## 配置断言
+          predicates:
+            ## Path Route Predicate Factory断言，满足请求路径的都会被路由到 lb://ali-account-service
+            #services:个uri中
+            - Path=/ali-order/**
+            - Method=GET #只能时 GET 请求时，才能访问
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    root: info
+    reactor:
+      netty: info
+    org.springframework.cloud.gateway: debug
+    org.springframework.cloud.loadbalancer: debug
+    org.springframework.web.reactive: debug

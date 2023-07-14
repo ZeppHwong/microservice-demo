@@ -15,7 +15,7 @@ public class UserDomain {
         return userMapper.insertUser(user);
     }
 
-    public User findUserById(String id) {
+    public User findUserById(Integer id) {
         return userMapper.getUserById(id);
     }
 }

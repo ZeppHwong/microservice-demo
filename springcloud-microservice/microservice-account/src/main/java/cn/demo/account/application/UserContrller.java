@@ -18,7 +18,7 @@ public class UserContrller {
 
 
     @GetMapping("user/find/{userId}")
-    public User findUser(@PathVariable("userId") String userId){
+    public User findUser(@PathVariable("userId") Integer userId){
        return  userDomain.findUserById(userId);
     }
 }

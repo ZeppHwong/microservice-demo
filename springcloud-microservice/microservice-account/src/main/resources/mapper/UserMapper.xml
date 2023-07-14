@@ -14,10 +14,22 @@
         insert into user (user_id,username,password,mobile) values (#{userId},#{userName},#{password},#{mobile})
     </insert>
 
-    <select id="getUserById" parameterType="java.lang.String"
+    <select id="getUserById" parameterType="int"
             resultType="cn.demo.account.infra.valueobject.User">
         select *
         from user
+        where user_id = #{userId}
+    </select>
+
+    <insert id="insertUserDetailInfo" parameterType="cn.demo.account.infra.valueobject.UserDetailInfo"
+            useGeneratedKeys="true">
+        insert into user_detail_info (user_id,address,age) values (#{userId},#{address},#{age})
+    </insert>
+
+    <select id="getUserDetailInfoById" parameterType="int"
+            resultType="cn.demo.account.infra.valueobject.UserDetailInfo">
+        select *
+        from user_detail_info
         where user_id = #{userId}
     </select>
 </mapper>

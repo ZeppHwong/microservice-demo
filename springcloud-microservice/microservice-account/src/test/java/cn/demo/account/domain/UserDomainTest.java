@@ -27,13 +27,13 @@ public class UserDomainTest {
     UserMapper userMapper;
 
     @Test
-    @DisplayName("测试插入数据")
+    @DisplayName("测试分库分表插入数据")
     public void testInsertUser() {
         User user = new User();
-        user.setUserId(2);
-        user.setUserName("222");
-        user.setPassword("222");
-        user.setMobile("222");
+        user.setUserId(102);
+        user.setUserName("102");
+        user.setPassword("102");
+        user.setMobile("102");
         int result = userMapper.insertUser(user);
 
         assertEquals(1, result);

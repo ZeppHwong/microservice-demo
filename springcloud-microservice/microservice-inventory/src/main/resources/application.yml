@@ -1,0 +1,32 @@
+server:
+  port: ${PORT:18084}
+  servlet:
+    context-path: /inventory
+spring:
+  application:
+    name: inventory-service
+  config:
+    import:
+      - classpath:application-mybatis.yml
+#      - application-shardingsphere.yml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+  # spring boot version is 2.6 or above need to set enable
+  info:
+    env:
+      enabled: true
+
+
+logging:
+  level:
+    root: info
+
+info:
+  application:
+    app: ${spring.application.name}
+    version: @project.version@

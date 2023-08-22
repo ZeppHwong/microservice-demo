@@ -24,9 +24,9 @@
     </properties>
     <modules>
 <!--        <module>dubbo-demo</module>-->
-<!--        <module>springcloud-demo</module>-->
-        <module>springcloud-microservice</module>
-<!--        <module>springcloud-alibaba-microservice</module>-->
+        <module>springcloud-demo</module>
+        <!--        <module>springcloud-microservice</module>-->
+<!--                <module>springcloud-alibaba-microservice</module>-->
     </modules>
 
 </project>

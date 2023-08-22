@@ -1,0 +1,23 @@
+server:
+  port: ${PORT:18091}
+  servlet:
+    context-path: /ali-storage
+spring:
+  application:
+    name: ali-order-service
+  datasource:
+    # no sharding database, only one database
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/storage?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: cn.demo.order.infra.valueobject
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

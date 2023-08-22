@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  k8s-sample:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: k8s-sample:v1.0.0
+    container_name: k8s-sample
+    ports:
+      - "18088:18088"

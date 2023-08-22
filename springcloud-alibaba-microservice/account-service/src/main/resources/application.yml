@@ -1,9 +1,8 @@
-feign:
-  client:
-    config:
-      default:
-        loggerLevel: FULL
+server:
+  port: ${PORT:18090}
+  servlet:
+    context-path: /ali-account
 
 logging:
   level:
-    cn.demo.account.feign.OrderService: debug
+    cn.demo.account.feign: debug

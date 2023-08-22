@@ -16,10 +16,11 @@
         <module>account-service</module>
         <module>order-service</module>
         <module>sentinel-gateway-service</module>
+        <module>storage-service</module>
     </modules>
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <pring-cloud-alibaba.version>2021.0.4.0</pring-cloud-alibaba.version>
         <spring-cloud.version>2021.0.3</spring-cloud.version>

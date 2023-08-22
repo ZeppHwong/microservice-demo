@@ -15,6 +15,7 @@
         <module>admin-sample</module>
         <module>eureka-sample</module>
         <module>gateway-sample</module>
+        <module>k8s-sample</module>
     </modules>
     <artifactId>springcloud-demo</artifactId>
 

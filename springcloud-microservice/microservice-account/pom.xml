@@ -12,7 +12,6 @@
 
     <artifactId>microservice-account</artifactId>
 
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,12 +56,6 @@
             <version>2.3.0</version>
         </dependency>
 
-        <!-- mybatis-plus -->
-<!--        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.1</version>
-        </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

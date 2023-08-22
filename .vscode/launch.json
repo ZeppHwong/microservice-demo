@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AdminClientApplication<admin-client>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "cn.demo.adminclient.AdminClientApplication",
+            "projectName": "admin-client",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AdminServerApplication<admin-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "cn.demo.adminserver.AdminServerApplication",
+            "projectName": "admin-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+server:
+  port: ${PORT:18091}
+  servlet:
+    context-path: /ali-order
+spring:
+  config:
+    import:
+      - classpath:application-mybatis.yml
+      - classpath:application-datasource.yml
+
+logging:
+  level:
+    cn.demo.order.feign: debug

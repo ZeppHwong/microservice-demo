@@ -1,0 +1,9 @@
+server:
+  port: ${PORT:18092}
+  servlet:
+    context-path: /ali-storage
+spring:
+  config:
+    import:
+      - classpath:application-mybatis.yml
+      - classpath:application-datasource.yml

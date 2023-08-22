@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:18088}
+  servlet:
+    context-path: /k8s
+spring:
+  application:
+    name: k8s-demo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+  # spring boot version is 2.6 or above need to set enable
+  info:
+    env:
+      enabled: true
+
+
+logging:
+  level:
+    root: info
+
+info:
+  application:
+    app: ${spring.application.name}
+    version: @project.version@

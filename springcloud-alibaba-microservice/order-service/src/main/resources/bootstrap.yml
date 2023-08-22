@@ -1,7 +1,4 @@
-server:
-  port: 8091
-  servlet:
-    context-path: /ali-order
+
 spring:
   application:
     name: ali-order-service
@@ -9,10 +6,14 @@ spring:
     nacos:
       discovery:
         server-addr: ${NACOSIP:127.0.0.1}:8848
-        username: nacos
-        password: nacos
+#        username: nacos
+#        password: nacos
       config:
         file-extension: yaml
         server-addr: ${NACOSIP:127.0.0.1}:8848
-        username: nacos
-        password: nacos
+#        username: nacos
+#        password: nacos
+#    alibaba:
+seata:
+  enabled: true
+  tx-service-group: my_test_tx_group

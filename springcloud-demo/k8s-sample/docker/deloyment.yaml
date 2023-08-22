@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-sample
+  labels:
+    name: k8s-sample
+spec:
+  selector:
+    matchLabels:
+      name: k8s-sample
+  template:
+    metadata:
+      labels:
+        name: k8s-sample
+    spec:
+      containers:
+        - name: k8s-sample
+          image: k8s-sample:v1.0.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 18088

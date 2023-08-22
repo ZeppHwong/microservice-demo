@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-sample-service
+spec:
+  selector:
+    app: k8s-sample
+  ports:
+    - protocol: TCP
+      port: 18088 # 服务端口, 内部可访问
+      targetPort: 18088 # 目标端口, 此处指的是pod的18088端口
+      nodePort: 30080 # 节点端口, 外部可访问
+  type: NodePort

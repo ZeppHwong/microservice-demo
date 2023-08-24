@@ -7,11 +7,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: k8s-sample
+      app: k8s-sample
   template:
     metadata:
       labels:
-        name: k8s-sample
+        app: k8s-sample
     spec:
       containers:
         - name: k8s-sample

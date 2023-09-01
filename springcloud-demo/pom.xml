@@ -31,7 +31,15 @@
         <spring-boot-admin.version>2.7.0</spring-boot-admin.version>
         <spring-cloud-netflix.version>2.2.7.RELEASE</spring-cloud-netflix.version>
     </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-kubernetes-client-config -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-kubernetes-client-config</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>

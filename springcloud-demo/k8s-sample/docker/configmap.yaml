@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-sample
+data:
+  application.yaml: |-
+    server:
+      port: ${PORT:18188}
+      servlet:
+        context-path: /k8s
+    greeting:
+      message: Say Hello to the World
+    farewell:
+      message: Say Goodbye
+    info:
+      application:
+        app: ${spring.application.name}
+        version: @project.version@

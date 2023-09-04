@@ -27,11 +27,14 @@ spring:
           - name: k8s-sample
 
 management:
+  endpoint:
+    restart:
+      enabled: true
   endpoints:
     web:
       exposure:
         include: "*"
-        exclude: "env,beans"
+        exclude: "env,beans,shutdown"
   # spring boot version is 2.6 or above need to set enable
   info:
     env:

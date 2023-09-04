@@ -1,15 +1,31 @@
+server:
+  port: ${PORT:18088}
+  servlet:
+    context-path: /k8s
 spring:
   application:
     name: k8s-sample
   cloud:
     kubernetes:
       reload:
+#        The strategy to use when firing a reload (refresh, restart_context, or shutdown)
+        strategy: refresh
         #自动更新配置的开关设置为打开
         enabled: true
+        #更新配置信息的模式是主动拉取
+        mode: polling
+        #主动拉取的间隔时间是500毫秒
+        period: 1000
+      discovery:
+        namespaces:
+          - default
       config:
+        name: k8s-sample
+        namespace: default
         sources:
+          # Spring Cloud Kubernetes looks up a ConfigMap named k8s-sample in namespace default-namespace
           - name: k8s-sample
-            namespace: default
+
 management:
   endpoints:
     web:

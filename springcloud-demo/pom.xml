@@ -32,10 +32,26 @@
         <spring-cloud-netflix.version>2.2.7.RELEASE</spring-cloud-netflix.version>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-kubernetes-client-config -->
+        <!--Discovery Client implementation that resolves service names to Kubernetes Services.-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-kubernetes-fabric8 -->
+<!--        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-kubernetes-fabric8</artifactId>
+            <version>3.0.0</version>
+        </dependency>-->
+        <!--Load application properties from Kubernetes ConfigMaps and Secrets.
+         Reload application properties when a ConfigMap or Secret changes.-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-kubernetes-fabric8-config -->
+<!--        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-kubernetes-fabric8-config</artifactId>
+            <version>3.0.0</version>
+        </dependency>-->
+      <!--  All Spring Cloud Kubernetes features.-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-kubernetes-fabric8-all -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-kubernetes-client-config</artifactId>
+            <artifactId>spring-cloud-starter-kubernetes-fabric8-all</artifactId>
             <version>3.0.0</version>
         </dependency>
 

@@ -19,11 +19,12 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 18088
-          volumeMounts:
-            - name: k8s-conf   # 与上面的volumes.name保持一致
-              mountPath: /user/local/application.yml
-              readOnly: true
-      volumes:
-        - name: k8s-conf
-          configMap:
-            name: k8s-sample # 指定要使用的configmap名称
+      serviceAccount: k8s-sample
+      serviceAccountName: k8s-sample
+#          volumeMounts:
+#            - name: config-volume
+#              mountPath: /workspace/config
+#      volumes:
+#        - name: config-volume
+#          configMap:
+#            name: k8s-sample # 指定要使用的configmap名称

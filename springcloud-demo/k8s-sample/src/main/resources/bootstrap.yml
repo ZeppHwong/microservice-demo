@@ -7,6 +7,8 @@ spring:
     name: k8s-sample
   cloud:
     kubernetes:
+      ## 希望应用无法正确读取ConfigMap时启动失败，可设置如下参数：
+#      fail-fast: true
       reload:
 #        The strategy to use when firing a reload (refresh, restart_context, or shutdown)
         strategy: refresh

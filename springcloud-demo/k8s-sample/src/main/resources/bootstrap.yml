@@ -22,12 +22,14 @@ spring:
         namespaces:
           - default
       config:
-        name: k8s-sample
-        namespace: default
         sources:
           # Spring Cloud Kubernetes looks up a ConfigMap named k8s-sample in namespace default-namespace
-          - name: k8s-sample
-
+          - name: k8s-sample-config
+            namespace: default
+      secrets:
+        sources:
+          - name: k8s-sample-secret
+            namespace: default
 management:
   endpoint:
     restart:

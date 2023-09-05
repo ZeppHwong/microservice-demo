@@ -2,3 +2,6 @@ greeting:
   message: Say greeting default
 farewell:
   message: Say farewell Goodbye
+data:
+  username: ${DB_USERNAME}
+  password: ${DB_PASSWORD}

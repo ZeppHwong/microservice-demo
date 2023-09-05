@@ -19,8 +19,19 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 18088
-      serviceAccount: k8s-sample
-      serviceAccountName: k8s-sample
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                 name: k8s-sample-secret
+                 key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                 name: k8s-sample-secret
+                 key: password
+#      serviceAccount: k8s-sample-account
+      serviceAccountName: k8s-sample-account
 #          volumeMounts:
 #            - name: config-volume
 #              mountPath: /workspace/config

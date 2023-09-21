@@ -5,7 +5,7 @@ FROM openjdk:11
 MAINTAINER wangzhaopei
 
 # Set the working directory to /app
-COPY k8s-sample-1.0-SNAPSHOT.jar /user/local/k8s-sample.jar
+COPY k8s-sample-v1.0.0.jar /user/local/k8s-sample.jar
 WORKDIR /user/local/
 
 # Copy the current directory contents into the container at /app

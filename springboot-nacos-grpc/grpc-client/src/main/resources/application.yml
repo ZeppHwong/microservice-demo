@@ -1,0 +1,32 @@
+server:
+  port: 8080
+nacos:
+  discovery:
+#    autoRegister: true
+    server-addr: 127.0.0.1:8848
+#    username: nacos
+#    password: nacos
+    enabled: true
+  config:
+    server-addr: 127.0.0.1:8848
+  application:
+    name: myGrpcClient
+grpc:
+  client:
+    myGrpcServer:
+#      address: static://localhost:9091
+      negotiationType: PLAINTEXT
+
+spring:
+  application:
+    name: myGrpcServer
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: ${NACOS:127.0.0.1}:8848
+#      #        username: nacos
+#      #        password: nacos
+#      config:
+#        import-check.enabled: false
+#        file-extension: yaml
+#        server-addr: ${NACOS:127.0.0.1}:8848

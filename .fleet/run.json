@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name":"k8s-sample",
+            "type": "spring-boot",
+            "mainClass": "cn.demo.k8s.K8sApplication",
+            "module": "microservice-demo.springcloud-demo.k8s-sample",
+        },
+        
+    ]
+}

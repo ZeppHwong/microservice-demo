@@ -13,8 +13,9 @@
     <artifactId>spring-learn-demo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>learn-demo</module>
+        <module>demo-autoconfiguration</module>
         <module>demo-spring-boot-starter</module>
+        <module>demo-webflux</module>
     </modules>
 
     <properties>

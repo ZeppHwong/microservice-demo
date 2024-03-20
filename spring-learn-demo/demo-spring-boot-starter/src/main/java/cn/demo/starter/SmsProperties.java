@@ -3,7 +3,6 @@ package cn.demo.starter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "sms")
-
 public class SmsProperties {
 
     private SmsMessage aliyun = new SmsMessage();

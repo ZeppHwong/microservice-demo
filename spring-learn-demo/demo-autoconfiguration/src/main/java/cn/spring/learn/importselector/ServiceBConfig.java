@@ -5,10 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ConfigB {
+public class ServiceBConfig {
     @Bean
     @ConditionalOnMissingBean
-    public IService getServiceB() {
+    public IService serviceB() {
         return new ServiceB();
     }
 }

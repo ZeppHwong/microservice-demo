@@ -7,7 +7,7 @@ public class TencentSmsSenderImpl implements ISmsSender {
     private SmsProperties.SmsMessage smsMessage;
 
     @Autowired
-    SmsDomain smsDomain;
+    SmsDomainTencent smsDomain;
 
 
     public TencentSmsSenderImpl(SmsProperties.SmsMessage smsProperties) {

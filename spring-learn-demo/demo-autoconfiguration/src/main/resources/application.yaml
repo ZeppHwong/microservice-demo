@@ -15,7 +15,7 @@ server:
 
 
 sms:
-  type: tencent
+#  type: aliyun
   aliyun:
     pass-word: 12345
     user-name: java金融

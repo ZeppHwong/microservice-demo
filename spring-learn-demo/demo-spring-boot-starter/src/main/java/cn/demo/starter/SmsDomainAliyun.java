@@ -3,8 +3,8 @@ package cn.demo.starter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SmsDomain {
+public class SmsDomainAliyun {
     public void sendOver(){
-        System.out.println("SmsDomain.sendOver");
+        System.out.println("SmsDomainAliyun.sendOver");
     }
 }

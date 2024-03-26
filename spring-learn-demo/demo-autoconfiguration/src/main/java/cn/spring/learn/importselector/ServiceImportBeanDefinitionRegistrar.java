@@ -14,12 +14,21 @@ import java.util.Map;
 public class ServiceImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-        Map<String, Object> map = importingClassMetadata.getAnnotationAttributes(EnableService.class.getName(), true);
+   /*     Map<String, Object> map = importingClassMetadata.getAnnotationAttributes(EnableService.class.getName(), true);
         String name = (String) map.get("name");
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.rootBeanDefinition(ServiceC.class)
                 //增加构造参数
                 .addConstructorArgValue(name);
         //注册Bean
-        registry.registerBeanDefinition("serviceC", beanDefinitionBuilder.getBeanDefinition());
+        registry.registerBeanDefinition("serviceC", beanDefinitionBuilder.getBeanDefinition());*/
+
+        Map<String, Object> map = importingClassMetadata.getAnnotationAttributes(EnableService.class.getName(), false);
+        String name = (String) map.get("name");
+        Class<?> clz = (Class<?>) map.get("clz");
+        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.rootBeanDefinition(clz)
+        //增加构造参数
+                .addConstructorArgValue(name);
+        //注册Bean
+        registry.registerBeanDefinition(clz.getSimpleName(), beanDefinitionBuilder.getBeanDefinition());
     }
 }

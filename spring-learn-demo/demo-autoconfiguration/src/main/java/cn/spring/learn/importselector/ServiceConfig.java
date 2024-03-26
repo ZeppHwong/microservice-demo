@@ -4,12 +4,14 @@ import org.springframework.context.annotation.Configuration;
 
 //@Import(ConfigB.class)
 //@Import(ServiceImportSelector.class)
-@EnableService(name = "TestServiceC")
+@EnableService(name = "name",clz = ServiceC.class)
 @Configuration
-public class ConfigA {
+public class ServiceConfig {
 //    @Bean
 //    @ConditionalOnMissingBean
-    public IService getServiceA() {
+    public IService serviceA() {
         return new ServiceA();
     }
+
+
 }

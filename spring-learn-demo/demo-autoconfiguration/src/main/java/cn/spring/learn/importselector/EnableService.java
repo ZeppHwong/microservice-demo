@@ -10,5 +10,7 @@ import java.lang.annotation.*;
 @Import(ServiceImportBeanDefinitionRegistrar.class)
 //@Import(EnableServiceImportSelector.class)
 public @interface EnableService {
+    //    Class<?> name();
     String name();
+    Class<?> clz();
 }

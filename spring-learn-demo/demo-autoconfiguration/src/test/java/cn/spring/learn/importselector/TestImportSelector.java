@@ -10,7 +10,7 @@ public class TestImportSelector {
 
     @Test
     public void testImportSelect() {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigA.class);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(ServiceConfig.class);
         IService bean = ctx.getBean(IService.class);
         bean.test();
     }

@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface Serializable
+
+abstract class AbstractConfig
+abstract class AbstractMethodConfig
+abstract class AbstractInterfaceConfig
+abstract class AbstractServiceConfig
+abstract class ServiceConfigBase
+class ServiceConfig
+class ServiceBean
+
+
+interface InitializingBean
+interface DisposableBean
+interface ApplicationContextAware
+interface BeanNameAware
+interface ApplicationEventPublisherAware
+
+note top of AbstractConfig: 最顶层服务配置类型
+note top of AbstractMethodConfig: 服务方法相关配置
+note right of AbstractInterfaceConfig : 抽象的接口配置
+note right of AbstractServiceConfig: 抽象的服务配置
+note top of ServiceConfigBase : 服务的基础配置类
+note right of ServiceConfig: 服务配置实现类
+note right of ServiceBean: 服务工厂Bean Spring适配
+
+
+
+Serializable <|- AbstractConfig
+AbstractConfig <|- AbstractMethodConfig
+AbstractMethodConfig <|-- AbstractInterfaceConfig
+AbstractInterfaceConfig<|-- AbstractServiceConfig
+AbstractServiceConfig <|-- ProviderConfig
+AbstractServiceConfig <|-- ServiceConfigBase
+ServiceConfigBase <|-- ServiceConfig
+ServiceConfig <|-- ServiceBean
+ServiceBean ..|> InitializingBean
+ServiceBean ..|> DisposableBean
+ServiceBean ..|> ApplicationContextAware
+ServiceBean ..|> BeanNameAware
+ServiceBean ..|> ApplicationEventPublisherAware
+
+@enduml

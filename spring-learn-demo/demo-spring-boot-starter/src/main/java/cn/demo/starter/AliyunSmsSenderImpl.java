@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class AliyunSmsSenderImpl implements ISmsSender{
     private SmsProperties.SmsMessage smsMessage;
     @Autowired
-    SmsDomain smsDomain;
+    SmsDomainAliyun smsDomain;
 
     public AliyunSmsSenderImpl(SmsProperties.SmsMessage smsProperties) {
         this.smsMessage = smsProperties;

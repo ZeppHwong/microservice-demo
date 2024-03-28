@@ -18,6 +18,7 @@
         <module>microservice-configcenter</module>
         <module>microservice-order</module>
         <module>microservice-gateway</module>
+        <module>microservice-inventory</module>
     </modules>
 
 

@@ -1,13 +1,13 @@
 package cn.demo.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 
-//@Component
-//@ConditionalOnProperty(prefix = "service", name = "name", havingValue = "service1")
+@Component
+@ConditionalOnBean(Service1On.class)
 public class HelloImpl implements IHello {
     @Autowired
     HelloService helloService;

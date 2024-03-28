@@ -1,4 +1,4 @@
-package cn.demo.configuration;
+package cn.demo.api;
 
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;

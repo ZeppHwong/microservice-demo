@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConditionalOnBean(Service2On.class)
+//@ConditionalOnBean(Service2On.class)
+@ConditionalOnService2Enabled
 public class HelloImpl2 implements IHello {
     @Autowired
     HelloService2 service;

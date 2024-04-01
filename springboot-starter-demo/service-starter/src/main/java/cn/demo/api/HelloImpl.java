@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-@ConditionalOnBean(Service1On.class)
+//@ConditionalOnBean(Service1On.class)
+@ConditionalOnServiceEnabled
 public class HelloImpl implements IHello {
     @Autowired
     HelloService helloService;

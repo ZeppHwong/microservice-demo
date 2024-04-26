@@ -16,6 +16,7 @@
         <module>demo-autoconfiguration</module>
         <module>demo-spring-boot-starter</module>
         <module>demo-webflux</module>
+        <module>demo-springboot-maven-plugin</module>
     </modules>
 
     <properties>

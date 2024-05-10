@@ -4,25 +4,25 @@ import reactor.core.publisher.Flux;
 
 import java.util.List;
 
-public class AsynchronousFlux extends BaseFlux{
+public class AsynchronousFlux extends BaseFlux {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 //        CreateBridgeToFlux();
 //        PushBridgeToFlux();
 //        HybridPushPullModel();
 //        CleanUpAfterCreateOrPush();
-        HandlerFLux();
-    }
+    HandlerFLux();
+  }
 
-    private static void CleanUpAfterCreateOrPush() {
+  private static void CleanUpAfterCreateOrPush() {
 /*        Flux<String> bridge = Flux.create(sink -> {
             sink.onRequest(n -> channel.poll(n))
                     .onCancel(() -> channel.cancel())
                     .onDispose(() -> channel.close());
         });*/
-    }
+  }
 
-    private static void HybridPushPullModel() {
+  private static void HybridPushPullModel() {
 /*        Flux<String> bridge = Flux.create(sink -> {
             myMessageProcessor.register(
                     new MyMessageListener<String>() {
@@ -40,12 +40,12 @@ public class AsynchronousFlux extends BaseFlux{
                 }
             });
         });*/
-    }
+  }
 
-    /**
-     * Asynchronous but single-threaded
-     */
-    private static void PushBridgeToFlux() {
+  /**
+   * Asynchronous but single-threaded
+   */
+  private static void PushBridgeToFlux() {
 /*        Flux<String> bridge = Flux.push(sink -> {
             myEventProcessor.register(
                     new SingleThreadEventListener<String>() {
@@ -65,9 +65,9 @@ public class AsynchronousFlux extends BaseFlux{
                         }
                     });
         });*/
-    }
+  }
 
-    private static void CreateBridgeToFlux() {
+  private static void CreateBridgeToFlux() {
   /*      Flux<String> bridge = Flux.create(sink -> {
             myEventProcessor.register(
                     new MyEventListener<String>() {
@@ -83,33 +83,37 @@ public class AsynchronousFlux extends BaseFlux{
                         }
                     });
         });*/
-    }
+  }
 
-    interface MyEventListener<T> {
-        void onDataChunk(List<T> chunk);
-        void processComplete();
-    }
-    interface SingleThreadEventListener<T> {
-        void onDataChunk(List<T> chunk);
-        void processComplete();
-        void processError(Throwable e);
-    }
+  interface MyEventListener<T> {
+    void onDataChunk(List<T> chunk);
 
-    private static void HandlerFLux() {
-        Flux<String> alphabet = Flux.just(-1, 30, 13, 9, 20)
-                .handle((i, sink) -> {
-                    String letter = alphabet(i);
-                    if (letter != null)
-                        sink.next(letter);
-                });
-        printFlux(alphabet);
-    }
+    void processComplete();
+  }
 
-    public static String alphabet(int letterNumber) {
-        if (letterNumber < 1 || letterNumber > 26) {
-            return null;
-        }
-        int letterIndexAscii = 'A' + letterNumber - 1;
-        return "" + (char) letterIndexAscii;
+  interface SingleThreadEventListener<T> {
+    void onDataChunk(List<T> chunk);
+
+    void processComplete();
+
+    void processError(Throwable e);
+  }
+
+  private static void HandlerFLux() {
+    Flux<String> alphabet = Flux.just(-1, 30, 13, 9, 20)
+            .handle((i, sink) -> {
+              String letter = alphabet(i);
+              if (letter != null)
+                sink.next(letter);
+            });
+    printFlux(alphabet);
+  }
+
+  public static String alphabet(int letterNumber) {
+    if (letterNumber < 1 || letterNumber > 26) {
+      return null;
     }
+    int letterIndexAscii = 'A' + letterNumber - 1;
+    return "" + (char) letterIndexAscii;
+  }
 }

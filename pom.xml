@@ -29,10 +29,10 @@
         <!--        <module>springcloud-alibaba-microservice</module>-->
         <!--        <module>springboot-nacos-grpc</module>-->
         <!--<module>springboot-starter-demo</module>-->
-        <!--<module>spring-learn-demo</module>-->
+<!--        <module>spring-learn-demo</module>-->
         <!--        <module>zookeeper-learn-demo</module>-->
 <!--        <module>disruptor-learn-demo</module>-->
-        <module>jmh-learn-demo</module>
+<!--        <module>jmh-learn-demo</module>-->
     </modules>
 
 </project>

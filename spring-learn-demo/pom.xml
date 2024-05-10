@@ -17,6 +17,7 @@
         <module>demo-spring-boot-starter</module>
         <module>demo-webflux</module>
         <module>demo-springboot-maven-plugin</module>
+        <module>reactor-learn</module>
     </modules>
 
     <properties>
